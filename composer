@@ -1,12 +1,12 @@
 # windows version
 
-COMPOSER_HOME=/tmp/.config/composer \
-COMPOSER_CACHE_DIR=/tmp/.cache/composer \
+COMPOSER_HOME=//tmp/.config/composer \
+COMPOSER_CACHE_DIR=//tmp/.cache/composer \
 
 docker run --rm --interactive --tty \
 	--env COMPOSER_HOME=$COMPOSER_HOME \
 	--env COMPOSER_CACHE_DIR=$COMPOSER_CACHE_DIR \
 	--volume $HOME/.config/composer:$COMPOSER_HOME \
 	--volume $HOME/.cache/composer:$COMPOSER_CACHE_DIR \
-	--volume $PWD:/app \
+	--volume $PWD://app \
 	composer "$@"
