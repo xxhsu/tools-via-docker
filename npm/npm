@@ -1,0 +1,5 @@
+if [[ "$(docker images -q my-node 2> /dev/null)" == "" ]]; then
+	docker build -t my-node "$( dirname "$BASH_SOURCE")"
+fi
+
+docker run --rm -it -v $PWD://tmp -w //tmp my-node cnpm "$@"
