@@ -1,5 +1,9 @@
 # linux version
 
+if [[ "$(docker images -q my-composer 2> /dev/null)" == "" ]]; then
+	docker build -t my-composer "$( dirname "$BASH_SOURCE")"
+fi
+
 COMPOSER_HOME=$HOME/.config/composer \
 COMPOSER_CACHE_DIR=$HOME/.cache/composer \
 
