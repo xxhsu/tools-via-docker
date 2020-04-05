@@ -1,3 +1,5 @@
+# windows version
+
 if [[ "$(docker images -q my-python 2> /dev/null)" == "" ]]; then
 	docker build -t my-python "$( dirname "$BASH_SOURCE")"
 fi
