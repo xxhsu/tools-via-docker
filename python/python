@@ -1,0 +1,8 @@
+if [[ "$(docker images -q my-python 2> /dev/null)" == "" ]]; then
+	docker build -t my-python "$( dirname "$BASH_SOURCE")"
+fi
+
+docker run -it --rm \
+	-v "$PWD"://usr/src/app \
+	-w //usr/src/app \
+	my-python "$@"
