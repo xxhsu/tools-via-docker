@@ -1,0 +1,9 @@
+if [[ "$(docker images -q my-golang 2> /dev/null)" == "" ]]; then
+	docker build -t my-golang "$( dirname "$BASH_SOURCE")"
+fi
+
+docker run --rm \
+	-v "$PWD"://usr/src/$(basename "$PWD") \
+	-w //usr/src/$(basename "$PWD") \
+	-e GOARCH=amd64 \
+	my-golang "$@"
